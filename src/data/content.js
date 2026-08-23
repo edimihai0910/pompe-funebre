@@ -10,9 +10,10 @@ export const BUSINESS = {
   city: 'Ogrezeni, județul Giurgiu',
   // Coordonate reale (OpenStreetMap) — Strada Principală, Ogrezeni, Giurgiu
   coords: { lat: 44.4027838, lng: 25.7800284 },
-  waze: 'https://waze.com/ul?q=Strada%20Principala%20238%20Ogrezeni%20Giurgiu&navigate=yes',
-  gmaps:
-    'https://www.google.com/maps/search/?api=1&query=Strada%20Principala%20238%2C%20Ogrezeni%2C%20Giurgiu',
+  // Coordonate exacte in loc de cautare dupa text — Waze/Google confundau
+  // "Strada Principala" cu comuna vecina Cosoba. ll = pin fix pe Ogrezeni.
+  waze: 'https://waze.com/ul?ll=44.4027838,25.7800284&navigate=yes',
+  gmaps: 'https://www.google.com/maps/search/?api=1&query=44.4027838,25.7800284',
 }
 
 export const NAV = [
