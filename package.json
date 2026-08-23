@@ -1,0 +1,21 @@
+{
+  "name": "cori-flo-pompe-funebre",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Site prezentare Cori&Flo Pompe Funebre Ogrezeni — aplicatie React responsive",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

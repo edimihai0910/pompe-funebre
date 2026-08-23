@@ -1,0 +1,145 @@
+.hero {
+  position: relative;
+  height: min(90vh, 780px);
+  min-height: 540px;
+  overflow: hidden;
+  background: var(--ink);
+  isolation: isolate;
+}
+
+.hero__kenburns {
+  position: absolute;
+  inset: 0;
+  animation: heroKenBurns 30s ease-in-out infinite alternate;
+}
+.hero__kenburns svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Gradient de lizibilitate */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(42, 35, 28, 0.5) 0%,
+    rgba(42, 35, 28, 0.28) 38%,
+    rgba(42, 35, 28, 0.86) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow interactiv care urmareste cursorul (efect la hover, in tema) */
+.hero__spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 40%),
+    rgba(228, 211, 178, 0.35) 0%,
+    rgba(200, 150, 84, 0.16) 40%,
+    rgba(200, 150, 84, 0) 72%
+  );
+  mix-blend-mode: screen;
+}
+.hero.is-hovering .hero__spotlight {
+  opacity: 1;
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 22px;
+  padding: clamp(24px, 5vw, 72px);
+  /* lasa loc lumanarii jos-centru */
+  padding-bottom: clamp(28px, 6vw, 80px);
+  pointer-events: none;
+}
+
+.hero__eyebrow {
+  margin: 0 0 14px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-pale);
+}
+.hero__title {
+  margin: 0;
+  font-size: clamp(34px, 6.4vw, 76px);
+  line-height: 1.05;
+  color: #fbf7f0;
+  max-width: 15em;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.35);
+}
+.hero__lead {
+  margin: 0;
+  max-width: 52ch;
+  font-size: clamp(15px, 1.7vw, 19px);
+  line-height: 1.65;
+  color: #efe6d8;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  pointer-events: auto;
+}
+.hero__block--eyebrow {
+  animation: fadeUp 900ms ease both;
+}
+.hero__lead {
+  animation: fadeUp 900ms 140ms ease both;
+}
+.hero__cta {
+  animation: fadeUp 900ms 260ms ease both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 15.5px;
+  letter-spacing: 0.03em;
+  transition: background 240ms ease, transform 240ms ease, box-shadow 240ms ease;
+}
+.btn--light {
+  background: var(--bg);
+  color: var(--ink);
+}
+.btn--light:hover {
+  background: #e8dcc5;
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+.btn--ghost {
+  border: 1px solid rgba(246, 241, 232, 0.55);
+  color: var(--bg);
+}
+.btn--ghost:hover {
+  background: rgba(246, 241, 232, 0.12);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__block--eyebrow,
+  .hero__lead,
+  .hero__cta {
+    animation: none;
+  }
+}

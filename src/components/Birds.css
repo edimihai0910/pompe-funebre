@@ -1,0 +1,93 @@
+/* Stol discret de pasari — siluete negre care plutesc lin prin cer,
+   in zare, pe langa biserica. Bataie de aripi + plutire + traversare. */
+
+.birds {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* peste peisaj, sub valul intunecat (scrim) */
+}
+
+.bird {
+  position: absolute;
+  left: 0;
+  top: var(--top, 24%);
+  opacity: var(--op, 0.85);
+  /* backwards: pana la pornire sta la primul cadru (in afara ecranului, dreapta)
+     -> nu mai apar gramada in stanga la refresh */
+  animation: birdFly var(--dur, 20s) linear var(--delay, 0s) infinite backwards;
+  will-change: transform;
+}
+
+.bird__inner {
+  animation: birdBob var(--bobdur, 3.2s) ease-in-out infinite;
+}
+
+.bird__svg {
+  display: block;
+  transform: scale(var(--size, 1));
+  transform-origin: center;
+}
+.bird__svg path {
+  fill: #211a12;
+}
+
+.bird__wing {
+  transform-box: fill-box;
+}
+.bird__wing--l {
+  transform-origin: 96% 75%;
+  animation: flapL var(--flap, 0.6s) ease-in-out infinite;
+}
+.bird__wing--r {
+  transform-origin: 4% 75%;
+  animation: flapR var(--flap, 0.6s) ease-in-out infinite;
+}
+
+/* Traversarea cerului (dreapta -> stanga) */
+@keyframes birdFly {
+  from {
+    transform: translateX(106vw);
+  }
+  to {
+    transform: translateX(-16vw);
+  }
+}
+
+/* Plutire blanda pe verticala */
+@keyframes birdBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--bob, 8px) * -1));
+  }
+}
+
+/* Bataia aripilor */
+@keyframes flapL {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(17deg);
+  }
+}
+@keyframes flapR {
+  0%,
+  100% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-17deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birds {
+    display: none;
+  }
+}

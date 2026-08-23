@@ -1,0 +1,207 @@
+/* Lumanare cu flacara animata — prim-plan hero, bucla blanda, fara sunet.
+   Flacara se unduieste vizibil: morph la margini + leganare + palpait. */
+
+.candle {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 270px;
+  pointer-events: none;
+  z-index: 3;
+  /* Intrare lina la deschiderea paginii */
+  animation: candleRise 1600ms 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes candleRise {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Aura calda care se revarsa pe fundal — respira mai vioi */
+.flame__glow {
+  position: absolute;
+  left: 50%;
+  bottom: 150px;
+  width: 360px;
+  height: 360px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 205, 120, 0.6) 0%,
+    rgba(236, 165, 85, 0.32) 32%,
+    rgba(200, 130, 60, 0) 70%
+  );
+  filter: blur(7px);
+  animation: glowBreath 4.5s ease-in-out infinite;
+}
+
+/* Corpul lumanarii (ceara) */
+.candle__body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 150px;
+  border-radius: 10px 10px 5px 5px;
+  background: linear-gradient(180deg, #fbf3e2 0%, #f2e4c9 40%, #e6d2ad 100%);
+  box-shadow:
+    inset -8px 0 14px rgba(120, 92, 51, 0.25),
+    inset 8px 0 10px rgba(255, 255, 255, 0.45),
+    0 -3px 12px rgba(247, 200, 120, 0.6);
+}
+
+/* Marginea de sus a lumanarii (ceara topita) */
+.candle__rim {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #f7e6c6 30%, #d9c09a 100%);
+}
+
+/* Fitilul */
+.candle__wick {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 14px;
+  background: #3a2c1c;
+  border-radius: 2px;
+}
+
+/* Flacara — silueta clara, se unduieste */
+.flame {
+  position: absolute;
+  left: 50%;
+  bottom: 148px;
+  width: 44px;
+  height: 100px;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  background: radial-gradient(
+    ellipse at 50% 82%,
+    #fffdf4 0%,
+    #ffe49a 20%,
+    #ffb347 46%,
+    #f2851c 72%,
+    rgba(226, 110, 20, 0.25) 100%
+  );
+  box-shadow:
+    0 -4px 26px rgba(247, 168, 58, 0.9),
+    0 0 44px rgba(247, 168, 58, 0.5);
+  /* forma de baza (si fallback la reduced-motion) */
+  clip-path: polygon(
+    50% 0%, 63% 20%, 71% 42%, 72% 62%, 64% 82%,
+    50% 100%, 36% 82%, 28% 62%, 29% 42%, 37% 20%
+  );
+  animation: flameDance 3.6s ease-in-out infinite;
+}
+
+/* Miezul luminos al flacarii — palpait mai rapid */
+.flame__core {
+  position: absolute;
+  left: 50%;
+  bottom: 148px;
+  width: 20px;
+  height: 54px;
+  transform: translateX(-50%);
+  transform-origin: 50% 100%;
+  background: radial-gradient(
+    ellipse at 50% 82%,
+    #ffffff 0%,
+    #ffe9b0 52%,
+    rgba(255, 210, 120, 0.12) 100%
+  );
+  clip-path: polygon(50% 6%, 64% 34%, 68% 62%, 50% 100%, 32% 62%, 36% 34%);
+  filter: blur(0.3px);
+  animation: flameCore 2.4s ease-in-out infinite;
+}
+
+/* Unduire vizibila: forma + leganare + inaltime + palpait */
+@keyframes flameDance {
+  0% {
+    transform: translateX(-50%) rotate(-2.5deg) scaleY(1);
+    clip-path: polygon(50% 0%, 63% 20%, 71% 42%, 72% 62%, 64% 82%, 50% 100%, 36% 82%, 28% 62%, 29% 42%, 37% 20%);
+    opacity: 0.95;
+  }
+  25% {
+    transform: translateX(-52%) rotate(2deg) scaleY(1.1);
+    clip-path: polygon(53% 0%, 68% 19%, 73% 40%, 70% 61%, 66% 82%, 50% 100%, 34% 80%, 30% 60%, 28% 40%, 36% 19%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-49%) rotate(-1.5deg) scaleY(0.94);
+    clip-path: polygon(47% 2%, 59% 23%, 70% 44%, 75% 64%, 62% 84%, 50% 100%, 38% 82%, 25% 62%, 30% 42%, 41% 22%);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateX(-51%) rotate(2.6deg) scaleY(1.06);
+    clip-path: polygon(52% 1%, 65% 20%, 72% 41%, 71% 61%, 65% 83%, 50% 100%, 35% 81%, 29% 61%, 28% 41%, 37% 20%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) rotate(-2.5deg) scaleY(1);
+    clip-path: polygon(50% 0%, 63% 20%, 71% 42%, 72% 62%, 64% 82%, 50% 100%, 36% 82%, 28% 62%, 29% 42%, 37% 20%);
+    opacity: 0.95;
+  }
+}
+
+@keyframes flameCore {
+  0%,
+  100% {
+    transform: translateX(-50%) scaleY(1) translateY(0);
+    opacity: 0.9;
+  }
+  30% {
+    transform: translateX(-51%) scaleY(1.14) translateY(-2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-49%) scaleY(0.9) translateY(1px);
+    opacity: 0.82;
+  }
+}
+
+@media (max-width: 640px) {
+  .candle {
+    width: 100px;
+    height: 220px;
+  }
+  .candle__body {
+    height: 118px;
+  }
+  .flame,
+  .flame__core {
+    bottom: 116px;
+  }
+  .flame__glow {
+    bottom: 118px;
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .candle {
+    animation: none;
+  }
+  .flame,
+  .flame__core,
+  .flame__glow {
+    animation: none;
+  }
+}

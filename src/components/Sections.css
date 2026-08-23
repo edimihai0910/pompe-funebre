@@ -1,0 +1,212 @@
+/* Stiluri comune pentru sectiunile de continut */
+
+.section__head {
+  max-width: 62ch;
+}
+
+/* ---------- Despre noi ---------- */
+.about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+.about__title {
+  margin: 0 0 22px;
+  font-size: clamp(26px, 3.6vw, 42px);
+  line-height: 1.18;
+  color: var(--ink);
+}
+.about__p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 60ch;
+}
+.about__p + .about__p {
+  margin-top: 16px;
+}
+.about__steps {
+  display: grid;
+  gap: 14px;
+}
+.step {
+  display: flex;
+  gap: 16px;
+  padding: 22px;
+  background: var(--paper);
+  border: 1px solid var(--line-3);
+  border-radius: 16px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+.step__n {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+}
+.step__title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 500;
+}
+.step__text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ---------- Servicii ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+}
+.card {
+  padding: 26px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--gold-pale);
+}
+.card__title {
+  margin: 0 0 12px;
+  font-size: 21px;
+  color: var(--ink);
+}
+.card__text {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.card__tag {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--muted-3);
+}
+
+/* ---------- Pachete ---------- */
+.pack-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.pack-head__note {
+  max-width: 46ch;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.packs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.pack {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+.pack:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+.pack--featured {
+  background: var(--ink-2);
+  border-color: var(--ink-2);
+  color: var(--bg);
+}
+.pack--featured:hover {
+  box-shadow: var(--shadow-lift);
+}
+.pack__badge {
+  align-self: flex-start;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(246, 241, 232, 0.14);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.pack__name {
+  margin: 0 0 8px;
+  font-size: 24px;
+}
+.pack--featured .pack__name {
+  color: var(--bg);
+}
+.pack__desc {
+  margin: 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.pack--featured .pack__desc {
+  color: #d9cdb9;
+}
+.pack__list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text);
+}
+.pack--featured .pack__list {
+  color: #efe6d8;
+}
+.pack__list li {
+  position: relative;
+  padding-left: 24px;
+}
+.pack__list li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.pack--featured .pack__list li::before {
+  background: var(--gold-soft);
+}
+.pack__price {
+  margin: auto 0 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--brown);
+}
+.pack--featured .pack__price {
+  color: var(--gold-soft);
+}
+.pack__foot {
+  margin: 26px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted-2);
+  max-width: 80ch;
+}
