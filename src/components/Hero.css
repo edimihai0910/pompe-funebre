@@ -136,6 +136,14 @@
   transform: translateY(-2px);
 }
 
+/* Pe telefon: lumanarea sta in coltul dreapta-jos, deci rezervam un culoar
+   in dreapta pentru toata coloana de continut, ca sa nu se suprapuna cu flacara. */
+@media (max-width: 640px) {
+  .hero__content {
+    padding-right: clamp(104px, 28vw, 130px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero__block--eyebrow,
   .hero__lead,

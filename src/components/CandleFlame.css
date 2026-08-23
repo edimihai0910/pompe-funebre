@@ -5,7 +5,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -65px; /* jumatate din latime -> centrat (transform ramane pt. animatie) */
   width: 130px;
   height: 270px;
   pointer-events: none;
@@ -17,11 +17,11 @@
 @keyframes candleRise {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(40px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 }
 
@@ -177,21 +177,32 @@
 }
 
 @media (max-width: 640px) {
+  /* Pe telefon lumanarea trece in coltul dreapta-jos, ca accent,
+     ca sa nu se mai suprapuna cu butoanele din hero. */
   .candle {
-    width: 100px;
-    height: 220px;
+    left: auto;
+    right: 5%;
+    margin-left: 0;
+    width: 82px;
+    height: 190px;
   }
   .candle__body {
-    height: 118px;
+    height: 104px;
   }
-  .flame,
+  .flame {
+    width: 36px;
+    height: 84px;
+    bottom: 102px;
+  }
   .flame__core {
-    bottom: 116px;
+    width: 16px;
+    height: 44px;
+    bottom: 102px;
   }
   .flame__glow {
-    bottom: 118px;
-    width: 280px;
-    height: 280px;
+    bottom: 104px;
+    width: 210px;
+    height: 210px;
   }
 }
 
