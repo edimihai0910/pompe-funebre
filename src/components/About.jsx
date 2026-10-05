@@ -13,7 +13,7 @@ export default function About() {
         <p className="about__p">
           O pierdere nu se pregătește. De aceea răspundem la telefon la orice oră și venim la
           dumneavoastră în cel mai scurt timp. Preluăm toate formalitățile: actele de deces,
-          certificatul, transportul, capela, sicriul, crucea, îmbrăcămintea, coroanele și pomenile.
+          certificatul, transportul, sicriul, crucea, îmbrăcămintea, coroanele și pomenile.
           Nimic nu rămâne pe umerii familiei.
         </p>
         <p className="about__p">

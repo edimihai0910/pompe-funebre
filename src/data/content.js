@@ -1,5 +1,11 @@
 // Continut text preluat din designul original Cori&Flo Pompe Funebre Ogrezeni
 
+// Pinul exact al sediului, luat din Google Maps. Linkurile Waze/Google folosesc
+// coordonatele (nu cautare dupa text) — altfel "Strada Principala" era confundata
+// cu comuna vecina Cosoba.
+const COORDS = { lat: 44.4207489, lng: 25.7685759 }
+const LL = `${COORDS.lat},${COORDS.lng}`
+
 export const BUSINESS = {
   name: 'Cori&Flo',
   full: 'Cori&Flo Pompe Funebre Ogrezeni',
@@ -8,12 +14,19 @@ export const BUSINESS = {
   phoneHref: 'tel:+40765377740',
   address: 'Strada Principală 238',
   city: 'Ogrezeni, județul Giurgiu',
-  // Coordonate reale (OpenStreetMap) — Strada Principală, Ogrezeni, Giurgiu
-  coords: { lat: 44.4027838, lng: 25.7800284 },
-  // Coordonate exacte in loc de cautare dupa text — Waze/Google confundau
-  // "Strada Principala" cu comuna vecina Cosoba. ll = pin fix pe Ogrezeni.
-  waze: 'https://waze.com/ul?ll=44.4027838,25.7800284&navigate=yes',
-  gmaps: 'https://www.google.com/maps/search/?api=1&query=44.4027838,25.7800284',
+  coords: COORDS,
+  waze: `https://waze.com/ul?ll=${LL}&navigate=yes`,
+  gmaps: `https://www.google.com/maps/search/?api=1&query=${LL}`,
+}
+
+// Date de identificare afisate in subsol si in politicile legale.
+// Campurile goale nu se afiseaza — de completat cu datele firmei.
+export const LEGAL = {
+  company: '', // denumirea juridica, ex. 'Cori & Flo SRL'
+  cui: '', // cod unic de inregistrare
+  regCom: '', // nr. Registrul Comertului, ex. 'J52/123/2020'
+  email: '', // adresa de e-mail pentru solicitari
+  updated: '3 octombrie 2026', // data ultimei actualizari a politicilor
 }
 
 export const NAV = [
@@ -48,8 +61,8 @@ export const SERVICES = [
     tag: 'stejar · fag · brad · capitonaj la alegere',
   },
   {
-    title: 'Cruci și troițe',
-    text: 'Cruci de lemn simple sau sculptate, vopsite, cu inscripționare completă a numelui și a datelor.',
+    title: 'Cruci',
+    text: 'Cruci de lemn simple, vopsite, cu inscripționare completă a numelui și a datelor.',
     tag: 'inscripționare inclusă',
   },
   {
@@ -64,18 +77,13 @@ export const SERVICES = [
   },
   {
     title: 'Coroane și flori',
-    text: 'Coroane, jerbe și aranjamente din flori naturale sau artificiale, pregătite pentru ziua slujbei.',
+    text: 'Coroane și aranjamente din flori naturale sau artificiale, pregătite pentru ziua slujbei.',
     tag: 'flori naturale · la comandă',
   },
   {
     title: 'Acte și formalități',
     text: 'Certificat de deces, adeverință de înhumare, dosarul pentru ajutorul de deces, programarea slujbei cu preotul.',
     tag: 'ne ocupăm noi de tot',
-  },
-  {
-    title: 'Capelă și veghe',
-    text: 'Amenajare pentru veghe la domiciliu sau la capelă: catafalc, sfeșnice, draperii, scaune, sonorizare.',
-    tag: 'amenajare completă',
   },
   {
     title: 'Pregătirea defunctului',
@@ -103,10 +111,9 @@ export const PACKAGES = [
     desc: 'Ne ocupăm de absolut tot, de la ridicare până la pomană.',
     items: [
       'Sicriu din fag sau stejar',
-      'Cruce, coroane și jerbe',
+      'Cruce și coroane',
       'Trusou complet, lumânări, prosoape',
       'Pregătirea și cosmetizarea defunctului',
-      'Amenajare capelă și sonorizare',
       'Transport, acte, programare slujbă',
     ],
     price: 'de la 2990 lei',
@@ -128,12 +135,31 @@ export const PACKAGES = [
   },
 ]
 
-// Cheile de imagine corespund ilustratiilor din components/Illustrations.jsx
+// Cheile corespund fotografiilor din src/images (vezi components/Portfolio.jsx)
 export const PORTFOLIO = [
-  { key: 'hearse', title: 'Mașina funerară' },
-  { key: 'coffins', title: 'Sicrie din expoziție' },
-  { key: 'crosses', title: 'Cruci și troițe' },
-  { key: 'wreaths', title: 'Coroane și jerbe' },
-  { key: 'chapel', title: 'Capelă amenajată' },
-  { key: 'trousseau', title: 'Trusou și îmbrăcăminte' },
+  {
+    key: 'hearse',
+    title: 'Mașina funerară',
+    alt: 'Mașina funerară Cori&Flo, cu compartimentul deschis și cu coroane așezate pe lateral',
+  },
+  {
+    key: 'coffins',
+    title: 'Sicrie din expoziție',
+    alt: 'Șase sicrie din lemn, în nuanțe diferite, dintre care unul capitonat cu alb',
+  },
+  {
+    key: 'crosses',
+    title: 'Cruci',
+    alt: 'Trei cruci de lemn inscripționate cu nume și date',
+  },
+  {
+    key: 'wreaths',
+    title: 'Coroane',
+    alt: 'Șase coroane funerare în culori diferite: albastru, roșu, alb, galben și mov',
+  },
+  {
+    key: 'rest',
+    title: 'Și tot ce vă mai trebuie, până la ultima lumânare',
+    alt: 'Prosoape, batiste, lumânări, veselă pentru pomană, cădelnițe, o cruce și o icoană, așezate pe o masă',
+  },
 ]

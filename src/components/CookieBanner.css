@@ -1,0 +1,94 @@
+.cookie {
+  position: fixed;
+  left: var(--page-pad);
+  bottom: clamp(12px, 3vw, 28px);
+  z-index: 60;
+  width: min(460px, calc(100vw - 2 * var(--page-pad)));
+  padding: 20px 22px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  animation: fadeUp 500ms ease both;
+}
+.cookie__title {
+  margin: 0 0 8px;
+  padding-right: 28px;
+  font-size: 18px;
+  color: var(--ink);
+}
+.cookie__text,
+.cookie__state {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.cookie__text a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.cookie__state {
+  margin-top: 8px;
+  color: var(--muted-2);
+}
+.cookie__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+/* Cele doua optiuni arata la fel: refuzul e la fel de usor ca acceptul */
+.cookie__btn {
+  flex: 1;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--ink-2);
+  color: var(--bg);
+  font-size: 15px;
+  transition: background 220ms ease;
+}
+.cookie__btn:hover {
+  background: var(--brown);
+}
+.cookie__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 22px;
+  line-height: 1;
+}
+.cookie__close:hover {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .cookie {
+    padding: 16px 18px;
+  }
+  .cookie__title {
+    font-size: 16.5px;
+  }
+  .cookie__text,
+  .cookie__state {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .cookie__actions {
+    margin-top: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie {
+    animation: none;
+  }
+}

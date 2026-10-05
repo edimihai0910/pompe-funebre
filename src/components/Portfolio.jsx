@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Reveal from './Reveal'
-import { PortfolioIllustration } from './Illustrations'
 import { PORTFOLIO } from '../data/content'
 import { useReveal } from '../hooks/useReveal'
+import hearse from '../images/masina-funerara.jpg'
+import coffins from '../images/sicrie.jpg'
+import crosses from '../images/cruci.jpg'
+import wreaths from '../images/coroane.jpg'
+import rest from '../images/restul.jpg'
 import './Portfolio.css'
+
+const IMAGES = { hearse, coffins, crosses, wreaths, rest }
 
 const AUTO_MS = 5000
 const n = PORTFOLIO.length
@@ -139,7 +145,17 @@ export default function Portfolio() {
                   role="group"
                   aria-roledescription="slide"
                 >
-                  <PortfolioIllustration name={item.key} />
+                  {/* Colajele se vad intregi (contain); fundalul e aceeasi poza, estompata */}
+                  <div className="slide__media">
+                    <img className="slide__bg" src={IMAGES[item.key]} alt="" loading="lazy" draggable={false} />
+                    <img
+                      className="slide__img"
+                      src={IMAGES[item.key]}
+                      alt={item.alt}
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </div>
                   <div className="slide__caption">
                     <h3>{item.title}</h3>
                   </div>

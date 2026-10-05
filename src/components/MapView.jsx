@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { BUSINESS } from '../data/content'
+import { setConsent, useConsent } from '../hooks/useConsent'
 
 // Pin tematic (divIcon — fara imagini externe, deci nu se strica la build)
 function pinIcon(color = '#7C5C33') {
@@ -45,9 +46,11 @@ export default function MapView() {
   const mapRef = useRef(null)
   const meMarkerRef = useRef(null)
   const [geo, setGeo] = useState({ status: 'idle', text: '' })
+  // Harta vine de la un tert (OpenStreetMap) — se incarca doar cu acordul vizitatorului
+  const allowed = useConsent()?.external === true
 
   useEffect(() => {
-    if (mapRef.current || !elRef.current) return
+    if (!allowed || mapRef.current || !elRef.current) return
 
     const { lat, lng } = BUSINESS.coords
     const map = L.map(elRef.current, {
@@ -85,8 +88,10 @@ export default function MapView() {
       clearTimeout(sizeTimer)
       map.remove()
       mapRef.current = null
+      meMarkerRef.current = null
+      setGeo({ status: 'idle', text: '' })
     }
-  }, [])
+  }, [allowed])
 
   const locateMe = () => {
     if (!('geolocation' in navigator)) {
@@ -126,6 +131,35 @@ export default function MapView() {
         })
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 },
+    )
+  }
+
+  if (!allowed) {
+    return (
+      <div className="mapwrap">
+        <div className="map map--locked">
+          <svg width="38" height="50" viewBox="0 0 38 50" aria-hidden="true">
+            <path
+              d="M19 1C9.6 1 2 8.6 2 18c0 12 17 30 17 30s17-18 17-30C36 8.6 28.4 1 19 1z"
+              fill="#7C5C33"
+              stroke="#F6F1E8"
+              strokeWidth="2"
+            />
+            <circle cx="19" cy="18" r="6.5" fill="#F6F1E8" />
+          </svg>
+          <p className="map__card-name">Cori&amp;Flo Ogrezeni</p>
+          <p className="map__card-addr">
+            {BUSINESS.address}, {BUSINESS.city}
+          </p>
+          <button className="map__show" onClick={() => setConsent(true)}>
+            Afișează harta
+          </button>
+          <p className="map__locked-note">
+            Harta este încărcată de la OpenStreetMap, un serviciu extern care primește astfel
+            adresa IP a dispozitivului. <a href="#politica-cookies">Detalii</a>
+          </p>
+        </div>
+      </div>
     )
   }
 

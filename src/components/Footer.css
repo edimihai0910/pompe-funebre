@@ -19,3 +19,41 @@
   font-size: 13.5px;
   letter-spacing: 0.06em;
 }
+
+/* Randul cu informatii legale */
+.footer__legal {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid rgba(217, 205, 185, 0.18);
+  font-size: 13.5px;
+}
+.footer__company {
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+.footer__links a,
+.footer__links button {
+  padding: 6px 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(217, 205, 185, 0.4);
+  text-underline-offset: 4px;
+  transition: color 200ms ease;
+}
+.footer__links a:hover,
+.footer__links button:hover {
+  color: var(--bg);
+}

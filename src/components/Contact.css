@@ -118,6 +118,47 @@
   color: var(--muted);
 }
 
+/* Harta neincarcata — pana la acordul vizitatorului pentru continutul extern */
+.map--locked {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 28px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 253, 249, 0.8), transparent 64%);
+}
+.map--locked .map__card-addr {
+  margin: 0;
+  font-size: 15px;
+}
+.map__show {
+  margin-top: 12px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 999px;
+  background: var(--ink-2);
+  color: var(--bg);
+  font-size: 15.5px;
+  transition: background 220ms ease, transform 220ms ease;
+}
+.map__show:hover {
+  background: var(--brown);
+  transform: translateY(-2px);
+}
+.map__locked-note {
+  max-width: 44ch;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.map__locked-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .map__locate {
   position: absolute;
   right: 16px;
