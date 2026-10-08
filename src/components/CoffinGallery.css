@@ -1,0 +1,242 @@
+/* Galeria de sicrie: titlu + forme, scena, miniaturi */
+
+.coffins {
+  /* inaltimea scenei; decupajele (3:2) se asaza intregi in ea */
+  --stage-h: min(clamp(250px, 46vw, 600px), 72vh);
+  --stage-pad: clamp(12px, 2.2vw, 30px);
+}
+
+.coffins__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 8px 16px;
+}
+.coffins__title {
+  font-family: var(--serif);
+  font-size: clamp(23px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+.coffins__note {
+  margin-top: 6px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--on-dark-muted);
+}
+
+/* Formele: 4 / 6 / 8 colturi */
+.coffins__shapes {
+  display: flex;
+  padding: 4px;
+  border: 1px solid rgba(228, 211, 178, 0.2);
+  border-radius: 999px;
+  background: rgba(246, 241, 232, 0.07);
+}
+.coffins__shape {
+  min-height: 44px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--on-dark-muted);
+  font-size: 14.5px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: background 260ms ease, color 260ms ease;
+}
+.coffins__shape:hover {
+  color: var(--on-dark);
+}
+.coffins__shape.is-active {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+/* Scena, cu sagetile si numarul modelului */
+.coffins__view {
+  position: relative;
+}
+.coffins__stage {
+  height: var(--stage-h);
+  display: grid;
+  place-items: center;
+  padding: var(--stage-pad);
+  touch-action: pan-y;
+  user-select: none;
+}
+/* Modelele stau unul peste altul; cel curent se ridica lin in lumina */
+.coffins__model {
+  grid-area: 1 / 1;
+  width: min(100%, calc((var(--stage-h) - 2 * var(--stage-pad)) * 1.5));
+  aspect-ratio: 3 / 2;
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+  transition:
+    opacity 700ms ease,
+    transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.coffins__model.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.coffins__model.is-active .cutout__sheen {
+  animation: sheen 1700ms 380ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.coffins__count {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+}
+.coffins__zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(42, 35, 28, 0.62);
+  color: var(--on-dark);
+  pointer-events: none;
+}
+.coffins__zoom svg {
+  width: 16px;
+  height: 16px;
+}
+
+.coffins__progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  animation: coffinsProgress var(--auto-ms, 5500ms) linear forwards;
+}
+@keyframes coffinsProgress {
+  to {
+    width: 100%;
+  }
+}
+
+/* Miniaturi: toate modelele, grupate pe forme */
+.coffins__thumbs {
+  position: relative;
+  display: flex;
+  justify-content: safe center;
+  gap: 8px;
+  padding: 12px 2px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.coffins__thumbs::-webkit-scrollbar {
+  display: none;
+}
+.coffins__thumbs li {
+  flex: 0 1 136px;
+  min-width: 78px;
+}
+/* spatiu mai mare unde incepe o forma noua */
+.coffins__thumb-gap {
+  margin-left: 12px;
+}
+.coffins__thumb {
+  width: 100%;
+  padding: 8px 6px 7px;
+  border: 1px solid rgba(228, 211, 178, 0.16);
+  border-radius: 11px;
+  background: rgba(246, 241, 232, 0.05);
+  color: var(--on-dark-muted);
+  transition: background 260ms ease, border-color 260ms ease, color 260ms ease;
+}
+.coffins__thumb img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+.coffins__thumb span {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.coffins__thumb:hover {
+  background: rgba(246, 241, 232, 0.1);
+}
+.coffins__thumb.is-active {
+  border-color: var(--gold-soft);
+  background: rgba(228, 211, 178, 0.16);
+  color: var(--on-dark);
+}
+
+@media (max-width: 720px) {
+  .coffins__head {
+    padding: 8px 6px 12px;
+  }
+  /* descrierea are loc pe doua randuri, ca scena sa nu sara la schimbarea modelului */
+  .coffins__note {
+    min-height: 3em;
+  }
+  .coffins__shapes {
+    width: 100%;
+  }
+  .coffins__shape {
+    flex: 1;
+    padding: 0 6px;
+  }
+  /* sagetile coboara sub scena, ca sa nu acopere sicriele */
+  .coffins__view {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px 8px;
+  }
+  .coffins__stage {
+    grid-column: 1 / -1;
+  }
+  .coffins__view .round-arrow {
+    position: static;
+    transform: none;
+    width: 44px;
+    height: 44px;
+    box-shadow: none;
+  }
+  .coffins__count {
+    position: static;
+    text-align: center;
+    font-size: 11.5px;
+  }
+  .coffins__zoom {
+    right: 8px;
+    bottom: 8px;
+  }
+  .coffins__thumbs {
+    justify-content: flex-start;
+  }
+  .coffins__thumbs li {
+    flex: 0 0 92px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coffins__model {
+    transform: none;
+    transition: opacity 200ms ease;
+  }
+  .coffins__model.is-active .cutout__sheen {
+    animation: none;
+  }
+}

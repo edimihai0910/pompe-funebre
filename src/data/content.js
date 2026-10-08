@@ -32,7 +32,8 @@ export const LEGAL = {
 export const NAV = [
   { href: '#servicii', label: 'Servicii' },
   { href: '#pachete', label: 'Pachete' },
-  { href: '#portofoliu', label: 'Portofoliu' },
+  { href: '#sicrie', label: 'Sicrie' },
+  { href: '#magazin', label: 'Magazin' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -135,31 +136,116 @@ export const PACKAGES = [
   },
 ]
 
-// Cheile corespund fotografiilor din src/images (vezi components/Portfolio.jsx)
-export const PORTFOLIO = [
+// Pachetele de pomana (meniuri). `img` = numele fotografiei pregatite in src/images/web
+// (vezi scripts/prepare-images.mjs si data/media.js) — la fel in toate listele de mai jos.
+export const MENUS = [
   {
-    key: 'hearse',
-    title: 'Mașina funerară',
-    alt: 'Mașina funerară Cori&Flo, cu compartimentul deschis și cu coroane așezate pe lateral',
+    img: 'meniu-standard',
+    name: 'Pachet standard',
+    price: '65 lei',
+    alt: 'Pachet standard, 65 lei: orez cu lapte, colivă, prăjitură, fruct, colăcel, apă, suc la doză, bere, iconiță și conservă de post',
   },
   {
-    key: 'coffins',
-    title: 'Sicrie din expoziție',
-    alt: 'Șase sicrie din lemn, în nuanțe diferite, dintre care unul capitonat cu alb',
+    img: 'meniu-post',
+    name: 'Pachet de post',
+    price: '70 lei',
+    alt: 'Pachet standard de post, 70 lei: orez cu ciuperci sau cu prune, colivă, prăjitură de post, fruct, colăcel, apă, suc la doză, bere, iconiță și conservă de post',
+  },
+]
+
+// Zonele din portofoliu (ancorele din bara de sub titlu)
+export const ZONES = [
+  { id: 'sicrie', label: 'Sicrie' },
+  { id: 'coroane', label: 'Coroane' },
+  { id: 'masina', label: 'Mașina funerară' },
+  { id: 'magazin', label: 'Magazin' },
+]
+
+// Galeria de sicrie: fiecare fotografie arata acelasi model din trei unghiuri.
+// `corners` e forma (4, 6 sau 8 colturi) — numarul de modele difera de la o forma la alta.
+export const COFFINS = [
+  {
+    corners: 4,
+    img: 'sicriu-4-colturi-1',
+    note: 'Maro deschis, cu frunze în relief și mânere aurii',
   },
   {
-    key: 'crosses',
-    title: 'Cruci',
-    alt: 'Trei cruci de lemn inscripționate cu nume și date',
+    corners: 4,
+    img: 'sicriu-4-colturi-2',
+    note: 'Capac negru lucios, cu frunze de stejar în relief și mânere aurii',
   },
   {
-    key: 'wreaths',
-    title: 'Coroane',
-    alt: 'Șase coroane funerare în culori diferite: albastru, roșu, alb, galben și mov',
+    corners: 6,
+    img: 'sicriu-6-colturi-1',
+    note: 'Maro, cu ornamente florale în relief și mânere aurii',
   },
   {
-    key: 'rest',
-    title: 'Și tot ce vă mai trebuie, până la ultima lumânare',
-    alt: 'Prosoape, batiste, lumânări, veselă pentru pomană, cădelnițe, o cruce și o icoană, așezate pe o masă',
+    corners: 6,
+    img: 'sicriu-6-colturi-2',
+    note: 'Lemn lăcuit în nuanțe calde, cu cruce pe capac',
+  },
+  {
+    corners: 6,
+    img: 'sicriu-6-colturi-3',
+    note: 'Lemn natur lăcuit, cu cruce pe capac',
+  },
+  {
+    corners: 8,
+    img: 'sicriu-8-colturi-1',
+    note: 'Vișiniu lucios, cu crucifix auriu și volan auriu cu dantelă',
+  },
+  {
+    corners: 8,
+    img: 'sicriu-8-colturi-2',
+    note: 'Vișiniu lucios, cu interior capitonat în satin auriu și pernă',
+  },
+]
+
+export const WREATHS = [
+  { img: 'coroana-albastra', title: 'Coroană albastră cu alb' },
+  { img: 'coroana-rosie', title: 'Coroană roșie cu alb' },
+  { img: 'coroana-visinie', title: 'Coroană vișinie cu alb' },
+  { img: 'coroana-lila', title: 'Coroană lila cu crem' },
+  { img: 'coroana-mov', title: 'Coroană mov cu crem' },
+].map((w) => ({ ...w, alt: `${w.title}, pe suport` }))
+
+// `pos` = ce parte din fotografie ramane in cadru cand e taiata pe lat
+export const HEARSE = [
+  {
+    img: 'masina-1',
+    title: 'Compartimentul funerar',
+    alt: 'Mașina funerară Cori&Flo, cu hayonul ridicat și compartimentul luminat',
+    pos: '50% 62%',
+  },
+  {
+    img: 'masina-2',
+    title: 'Pregătită de drum',
+    alt: 'Mașina funerară Cori&Flo văzută din lateral, cu trei coroane așezate pe geam',
+    pos: '50% 56%',
+  },
+]
+
+export const SHOP = [
+  {
+    img: 'magazin-lumanari',
+    title: 'Lumânări și candele',
+    alt: 'Raft cu candele, lumânări de altar și felinare, cu prețurile afișate',
+  },
+  {
+    img: 'magazin-prosoape',
+    title: 'Prosoape',
+    alt: 'Raft cu prosoape albe și crem, cu modele aurii și gri, cu prețurile afișate',
+  },
+  {
+    img: 'magazin-vesela',
+    title: 'Veselă pentru pomană',
+    alt: 'Raft cu farfurii, căni, pahare și boluri, cu prețurile afișate',
+  },
+  {
+    img: 'magazin-baticuri',
+    title: 'Baticuri',
+    alt: 'Stativ cu baticuri: florale, cu buline, negre cu bordură și din dantelă neagră',
+    wide: true,
+    pos: '46% 20%',
   },
 ]

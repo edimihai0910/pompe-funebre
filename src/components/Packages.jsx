@@ -1,4 +1,5 @@
 import Reveal from './Reveal'
+import MenuPacks from './MenuPacks'
 import { PACKAGES } from '../data/content'
 import './Sections.css'
 
@@ -42,6 +43,8 @@ export default function Packages() {
           de naștere sau de căsătorie. Dacă nu le găsiți acum, vă ajutăm să le obțineți.
         </p>
       </Reveal>
+
+      <MenuPacks />
     </section>
   )
 }

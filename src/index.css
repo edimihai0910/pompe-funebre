@@ -12,6 +12,19 @@
   --ink: #2a231c;
   --ink-2: #3b322a;
 
+  /* Scena inchisa, cu lumina calda, pe care stau decupajele (sicrie, meniuri)
+     si fotografiile marite */
+  --stage:
+    radial-gradient(
+      ellipse 72% 64% at 50% 40%,
+      rgba(198, 150, 92, 0.46) 0%,
+      rgba(124, 92, 51, 0.24) 42%,
+      rgba(124, 92, 51, 0) 74%
+    ),
+    linear-gradient(180deg, #2c2119 0%, #1c140f 100%);
+  --on-dark: #fbf7f0;
+  --on-dark-muted: #d9cdb9;
+
   /* Text */
   --text: #5c5145;
   --muted: #6e6257;
@@ -110,7 +123,6 @@ button {
 :focus-visible {
   outline: 2px solid var(--brown);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
 /* Selectie text discreta */
