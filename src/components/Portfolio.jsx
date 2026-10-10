@@ -73,7 +73,7 @@ export default function Portfolio() {
       <Zone
         id="magazin"
         title="Magazin"
-        text="Lumânări, candele, prosoape, baticuri și veselă pentru pomană, cu prețurile la vedere."
+        text="Lumânări, candele, prosoape, baticuri și veselă pentru pomană."
       >
         <PhotoTiles
           items={SHOP}

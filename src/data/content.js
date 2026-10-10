@@ -229,17 +229,17 @@ export const SHOP = [
   {
     img: 'magazin-lumanari',
     title: 'Lumânări și candele',
-    alt: 'Raft cu candele, lumânări de altar și felinare, cu prețurile afișate',
+    alt: 'Raft cu candele, lumânări de altar și felinare',
   },
   {
     img: 'magazin-prosoape',
     title: 'Prosoape',
-    alt: 'Raft cu prosoape albe și crem, cu modele aurii și gri, cu prețurile afișate',
+    alt: 'Raft cu prosoape albe și crem, cu modele aurii și gri',
   },
   {
     img: 'magazin-vesela',
     title: 'Veselă pentru pomană',
-    alt: 'Raft cu farfurii, căni, pahare și boluri, cu prețurile afișate',
+    alt: 'Raft cu farfurii, căni, pahare și boluri',
   },
   {
     img: 'magazin-baticuri',

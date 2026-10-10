@@ -54,7 +54,7 @@ const MENU_CANVAS = { width: 1000, height: 1500, pad: 0.015, widths: [1000, 500]
 const PHOTOS = [
   { src: 'Lumanari.png', name: 'magazin-lumanari', widths: [1086, 560] },
   { src: 'Prosoape.png', name: 'magazin-prosoape', widths: [1086, 560] },
-  { src: 'Vesela - Farfurii si Pahare .png', name: 'magazin-vesela', widths: [1086, 560] },
+  { src: 'Vesela - Farfurii si Pahare.png', name: 'magazin-vesela', widths: [1086, 560] },
   { src: 'Baticuri.png', name: 'magazin-baticuri', widths: [1536, 768] },
   { src: 'masina-funerara.jpg', name: 'masina-1', crop: [0, 0, 887, 887], widths: [887, 560] },
   { src: 'masina-funerara.jpg', name: 'masina-2', crop: [887, 0, 887, 887], widths: [887, 560] },
