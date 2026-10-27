@@ -3,6 +3,7 @@ import { BUSINESS } from '../data/content'
 import { HeroScene } from './Illustrations'
 import CandleFlame from './CandleFlame'
 import Birds from './Birds'
+import LightMotes from './LightMotes'
 import './Hero.css'
 
 export default function Hero() {
@@ -38,6 +39,9 @@ export default function Hero() {
 
       <div className="hero__scrim" />
       <div className="hero__spotlight" />
+
+      {/* Luminite calde care plutesc si urca din flacara (Three.js) */}
+      <LightMotes variant="hero" anchor=".flame" />
 
       {/* Lumanare cu flacara in prim-plan */}
       <CandleFlame />

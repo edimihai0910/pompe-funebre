@@ -8,7 +8,14 @@ function Operator() {
   return (
     <p>
       <strong>{LEGAL.company || BUSINESS.full}</strong>
+      {LEGAL.seat && (
+        <>
+          <br />
+          Sediul social: {LEGAL.seat}
+        </>
+      )}
       <br />
+      {LEGAL.seat ? 'Punct de lucru: ' : ''}
       {BUSINESS.address}, {BUSINESS.city}
       {LEGAL.cui && (
         <>
@@ -20,6 +27,12 @@ function Operator() {
         <>
           <br />
           Nr. Registrul Comerțului {LEGAL.regCom}
+        </>
+      )}
+      {LEGAL.euid && (
+        <>
+          <br />
+          EUID {LEGAL.euid}
         </>
       )}
       <br />
@@ -86,13 +99,13 @@ function CookiePolicy() {
           .
         </li>
         <li>
-          <strong>Waze și Google Maps.</strong> Butoanele din secțiunea Contact sunt simple
-          legături. Nu se transmite nimic către aceste servicii până nu apăsați pe ele; după
-          aceea se aplică politicile lor.
+          <strong>Waze, Google Maps și ANPC.</strong> Butoanele din secțiunea Contact și
+          legătura ANPC din subsol sunt simple legături. Nu se transmite nimic către aceste
+          servicii până nu apăsați pe ele; după aceea se aplică politicile lor.
         </li>
         <li>
-          <strong>Fonturi și imagini.</strong> Sunt găzduite pe acest site, nu sunt preluate de la
-          terți.
+          <strong>Fonturi, imagini și efecte.</strong> Sunt găzduite pe acest site, nu sunt
+          preluate de la terți.
         </li>
       </ul>
 

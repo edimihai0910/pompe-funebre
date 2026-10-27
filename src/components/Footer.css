@@ -33,8 +33,13 @@
   font-size: 13.5px;
 }
 .footer__company {
-  margin: 0;
+  display: grid;
+  gap: 4px;
   letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.footer__company p {
+  margin: 0;
 }
 .footer__links {
   display: flex;

@@ -73,12 +73,16 @@
   background: var(--paper);
   border: 1px solid var(--line-2);
   border-radius: var(--radius);
-  transition: transform 320ms ease, box-shadow 320ms ease, border-color 320ms ease;
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 420ms ease,
+    border-color 420ms ease;
 }
+/* la hover: se ridica putin, conturul capata o nuanta champagne, umbra ramane moale */
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-soft);
-  border-color: var(--gold-pale);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 44px rgba(42, 35, 28, 0.11);
+  border-color: #dcc49a;
 }
 .card__title {
   margin: 0 0 12px;

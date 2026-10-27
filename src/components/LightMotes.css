@@ -1,0 +1,23 @@
+/* Stratul cu luminite: umple parintele, nu prinde click-uri si apare lin cand e gata */
+.motes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1800ms ease;
+  mix-blend-mode: screen;
+}
+.motes.is-ready {
+  opacity: 1;
+}
+
+/* In hero: peste peisaj si valul intunecat, sub lumanare si text */
+.hero .motes {
+  z-index: 2;
+}
+/* Pe scena galeriilor: in spatele sicrielor si al meniurilor */
+.stage .motes {
+  z-index: -1;
+}

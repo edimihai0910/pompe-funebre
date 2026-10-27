@@ -5,6 +5,7 @@ import { useReveal } from '../hooks/useReveal'
 import { useSwipe } from '../hooks/useSwipe'
 import { Arrow, Expand } from './Icons'
 import Lightbox from './Lightbox'
+import LightMotes from './LightMotes'
 import './Gallery.css'
 import './CoffinGallery.css'
 
@@ -117,6 +118,7 @@ export default function CoffinGallery() {
       <div className="coffins__view">
         <div className="stage coffins__stage" onMouseMove={onMouseMove} {...swipe}>
           <span className="stage__glow" />
+          <LightMotes />
 
           {MODELS.map(
             (m, i) =>

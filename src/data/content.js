@@ -19,14 +19,16 @@ export const BUSINESS = {
   gmaps: `https://www.google.com/maps/search/?api=1&query=${LL}`,
 }
 
-// Date de identificare afisate in subsol si in politicile legale.
-// Campurile goale nu se afiseaza — de completat cu datele firmei.
+// Date de identificare (ca la ANAF / Registrul Comertului), afisate in subsol si in
+// politicile legale. Campurile goale nu se afiseaza.
 export const LEGAL = {
-  company: '', // denumirea juridica, ex. 'Cori & Flo SRL'
-  cui: '', // cod unic de inregistrare
-  regCom: '', // nr. Registrul Comertului, ex. 'J52/123/2020'
-  email: '', // adresa de e-mail pentru solicitari
-  updated: '3 octombrie 2026', // data ultimei actualizari a politicilor
+  company: 'CORI&FLO LOGISTIC S.R.L.',
+  seat: 'Str. Pridvorului nr. 7, bl. 5, sc. 3, et. 4, ap. 51',
+  cui: '50587751',
+  regCom: 'J2024024562001',
+  euid: 'ROONRC.J2024024562001',
+  anpc: 'https://www.anpc.ro/sal', // ANPC — solutionarea alternativa a litigiilor
+  updated: '27 octombrie 2026', // data ultimei actualizari a politicilor
 }
 
 export const NAV = [

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 import Lightbox from './Lightbox'
+import LightMotes from './LightMotes'
 import { BUSINESS, MENUS } from '../data/content'
 import { photo } from '../data/media'
 import './Gallery.css'
@@ -24,6 +25,7 @@ export default function MenuPacks() {
 
       <Reveal className="frame" delay={120}>
         <div className="stage menus__stage">
+          <LightMotes />
           <ul className="menus__list">
             {ITEMS.map((m, i) => (
               <li key={m.img}>
