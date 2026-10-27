@@ -32,7 +32,6 @@ export default function Packages() {
                 <li key={it}>{it}</li>
               ))}
             </ul>
-            <p className="pack__price">{p.price}</p>
           </Reveal>
         ))}
       </div>

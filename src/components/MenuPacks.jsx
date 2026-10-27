@@ -17,7 +17,7 @@ export default function MenuPacks() {
       <Reveal className="zone__head">
         <h3 className="zone__title">Pachete pentru pomană</h3>
         <p className="zone__text">
-          Pregătim pachete gata de împărțit, în două variante: standard și de post. Apăsați pe un
+          Pregătim pachete gata de împărțit, în două variante: dulce și de post. Apăsați pe un
           meniu ca să îl vedeți mărit.
         </p>
       </Reveal>

@@ -194,15 +194,6 @@
 .pack--featured .pack__list li::before {
   background: var(--gold-soft);
 }
-.pack__price {
-  margin: auto 0 0;
-  font-family: var(--serif);
-  font-size: 22px;
-  color: var(--brown);
-}
-.pack--featured .pack__price {
-  color: var(--gold-soft);
-}
 .pack__foot {
   margin: 26px 0 0;
   font-size: 14px;

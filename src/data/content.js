@@ -104,7 +104,6 @@ export const PACKAGES = [
       'Transport local cu mașina funerară',
       'Acte și ajutor de deces',
     ],
-    price: 'de la 1590 lei',
     featured: false,
   },
   {
@@ -117,7 +116,6 @@ export const PACKAGES = [
       'Pregătirea și cosmetizarea defunctului',
       'Transport, acte, programare slujbă',
     ],
-    price: 'de la 2990 lei',
     featured: true,
     badge: 'Cel mai ales',
   },
@@ -131,7 +129,6 @@ export const PACKAGES = [
       'Repatriere și incinerare',
       'Consiliere gratuită la telefon',
     ],
-    price: 'preț la cerere',
     featured: false,
   },
 ]
@@ -141,15 +138,15 @@ export const PACKAGES = [
 export const MENUS = [
   {
     img: 'meniu-standard',
-    name: 'Pachet standard',
+    name: 'Pachet standard dulce',
     price: '65 lei',
-    alt: 'Pachet standard, 65 lei: orez cu lapte, colivă, prăjitură, fruct, colăcel, apă, suc la doză, bere, iconiță și conservă de post',
+    alt: 'Pachet standard dulce, 65 lei: orez cu lapte, colivă, prăjitură, fruct, colăcel, apă, suc la doză, bere 330 ml, iconiță și conservă de post',
   },
   {
     img: 'meniu-post',
     name: 'Pachet de post',
     price: '70 lei',
-    alt: 'Pachet standard de post, 70 lei: orez cu ciuperci sau cu prune, colivă, prăjitură de post, fruct, colăcel, apă, suc la doză, bere, iconiță și conservă de post',
+    alt: 'Pachet standard de post, 70 lei: orez cu ciuperci sau cu prune, colivă, prăjitură de post, fruct, colăcel, apă, suc la doză, bere 330 ml, iconiță și conservă de post',
   },
 ]
 
