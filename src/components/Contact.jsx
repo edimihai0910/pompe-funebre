@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 import MapView from './MapView'
-import { BUSINESS } from '../data/content'
+import { AREAS, BUSINESS } from '../data/content'
 import './Contact.css'
 
 export default function Contact() {
@@ -49,6 +49,21 @@ export default function Contact() {
 
       <Reveal delay={140}>
         <MapView />
+      </Reveal>
+
+      <Reveal className="areas" delay={120}>
+        <div className="areas__head">
+          <p className="eyebrow">Din zona noastră</p>
+          <h3 className="areas__title">Avem clienți mulțumiți din:</h3>
+        </div>
+
+        <ul className="areas__list">
+          {AREAS.map((name) => (
+            <li key={name} className="areas__item">
+              {name}
+            </li>
+          ))}
+        </ul>
       </Reveal>
     </section>
   )

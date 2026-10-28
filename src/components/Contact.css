@@ -1,8 +1,15 @@
+/* O coloana pe telefon; de la ~740px, datele si harta alaturate (blocul cu localitati
+   sta dedesubt, pe toata latimea) */
 .contact {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(28px, 5vw, 64px);
   align-items: start;
+}
+@media (min-width: 740px) {
+  .contact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .contact__info {
@@ -73,6 +80,62 @@
   background: var(--bg-alt);
   color: var(--ink);
   transform: translateY(-2px);
+}
+
+/* ---------- Localitatile din care avem clienti ---------- */
+.areas {
+  grid-column: 1 / -1;
+  padding: clamp(22px, 3.4vw, 36px);
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+}
+.areas__head {
+  margin-bottom: 20px;
+}
+.areas__head .eyebrow {
+  margin-bottom: 10px;
+}
+.areas__title {
+  font-size: clamp(22px, 2.6vw, 28px);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.areas__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.areas__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--bg);
+  font-size: 14.5px;
+  color: var(--ink);
+}
+/* un punct auriu in fata fiecarei localitati */
+.areas__item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+@media (max-width: 560px) {
+  .areas__list {
+    gap: 8px;
+  }
+  .areas__item {
+    min-height: 36px;
+    padding: 6px 13px;
+    font-size: 14px;
+  }
 }
 
 /* ---------- Harta ---------- */

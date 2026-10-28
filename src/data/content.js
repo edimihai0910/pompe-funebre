@@ -31,6 +31,25 @@ export const LEGAL = {
   updated: '27 octombrie 2026', // data ultimei actualizari a politicilor
 }
 
+// Localitatile din care avem clienti multumiti, in ordine alfabetica. Apar in sectiunea
+// Contact; tot ele (plus Ogrezeni) sunt si in index.html, in datele pentru Google (`areaServed`).
+export const AREAS = [
+  'Bolintin-Deal',
+  'Bolintin-Vale',
+  'Buturugeni',
+  'Crivina',
+  'Dârvari',
+  'Grădinari',
+  'Hobaia',
+  'Malu Spart',
+  'Mihai Vodă',
+  'Palanca',
+  'Podișor',
+  'Suseni',
+  'Tântava',
+  'Zorile',
+]
+
 export const NAV = [
   { href: '#servicii', label: 'Servicii' },
   { href: '#pachete', label: 'Pachete' },
