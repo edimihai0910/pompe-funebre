@@ -142,7 +142,7 @@ export const MENUS = [
     img: 'meniu-standard',
     name: 'Pachet standard dulce',
     price: '65 lei',
-    alt: 'Pachet standard dulce, 65 lei: orez cu lapte, colivă, prăjitură, fruct, colăcel, apă, suc la doză, bere 330 ml, iconiță și conservă de post',
+    alt: 'Pachet standard dulce, 65 lei: orez cu lapte, colivă, prăjitură, fruct, colăcel, apă, suc la doză, bere 330 ml, iconiță și conservă',
   },
   {
     img: 'meniu-post',
